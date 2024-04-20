@@ -6,6 +6,7 @@ RegisterNetEvent('cc-911:Handle911Call', function(narrative, callLocation, cityN
         city = cityName,  
     }
 
+
     PerformHttpRequest(Config.cadURL .. "api/v1/emergency/create_call", function(err, text, headers)
         if err == 200 then
             print("911 Call processed successfully.")  
