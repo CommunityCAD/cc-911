@@ -6,7 +6,7 @@ RegisterNetEvent('cc-911:Handle911Call', function(narrative, callLocation, cityN
         city = cityName,  
     }
 
-    PerformHttpRequest(Config.cadURL .. "/api/v1/fivem/civilian/create_call", function(err, text, headers)
+    PerformHttpRequest(Config.cadURL .. "/api/v1/emergency/create_call", function(err, text, headers)
         if err == 200 then
             print("911 Call processed successfully.")  
             TriggerClientEvent('cc-911:CallResponse', source, true, "Your 911 call has been received! The authorities are on their way!")
