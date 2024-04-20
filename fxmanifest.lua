@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'Mxrcy'
 description 'Community CAD 911 Script'
-version 'v1.0.1'
+version 'v1.0.2'
 
 
 shared_script 'config.lua'
