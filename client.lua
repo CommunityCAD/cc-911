@@ -31,3 +31,31 @@ RegisterNetEvent('cc-911:CallResponse', function(success, message)
         args = {"911 Dispatch", message}
     })
 end)
+
+RegisterCommand('attach', function(source, args, rawCommand)
+    local callId = args[1]
+
+    if callId == nil then
+        TriggerEvent('chat:addMessage', { args = { '^1SYSTEM', 'Please provide a call ID.' } })
+        print("Attach command received, but no call ID provided.")
+        return
+    end
+
+    print("Attach command received with call ID:", callId)
+
+    TriggerServerEvent('cc-911:attachToCall', callId)
+end, false)
+
+RegisterCommand('detach', function(source, args, rawCommand)
+    local callId = args[1]
+
+    if callId == nil then
+        TriggerEvent('chat:addMessage', { args = { '^1SYSTEM', 'Please provide a call ID.' } })
+        print("Detach command received, but no call ID provided.")
+        return
+    end
+
+    print("Detach command received with call ID:", callId)
+
+    TriggerServerEvent('cc-911:detachFromCall', callId)
+end, false)
